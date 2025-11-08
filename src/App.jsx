@@ -4,6 +4,7 @@ import LoginPage from "./pages/login";
 import Footer from "./components/Footer";
 import Home from "./components/Home";
 import Header from "./components/Header";
+import RegisterPage from "./pages/register";
 
 const Layout = () => {
   return (
@@ -29,13 +30,17 @@ const router = createBrowserRouter([
   {
     path: "/login",
     element: <LoginPage />
+  },
+  {
+    path: "/register",
+    element: <RegisterPage />
   }
 ]);
 
 function App() {
   return (
     <>
-      <RouterProvider router={router} />,
+      <RouterProvider router={router} />
     </>
   )
 }
