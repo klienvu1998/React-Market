@@ -2,10 +2,13 @@ import { Button, Divider, Form, Input, notification } from "antd";
 import { useState } from "react";
 import { Link, useNavigate } from "react-router";
 import { loginUser } from "../../services/api";
+import { useDispatch } from "react-redux";
+import { doLoginAction } from "../../redux/accountSlice";
 
 const LoginPage = () => {
     const navigate = useNavigate();
     const [isLogin, setIsLogin] = useState(false)
+    const dispatch = useDispatch()
 
     const onFinish = async (values) => {
         setIsLogin(true)
@@ -13,10 +16,13 @@ const LoginPage = () => {
         const res = await loginUser(email, password)
         setIsLogin(false)
         if (res?.data) {
+            localStorage.setItem('access_token', res.data.access_token)
+            dispatch(doLoginAction(res.data.user))
             notification.success({
                 message: "Login success",
                 duration: 3
             })
+            navigate('/')
         } else {
             notification.error({
                 message: "Login fail",

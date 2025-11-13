@@ -1,0 +1,46 @@
+.search-input {
+    /* Layout and Sizing */
+    width: 100%;
+    /* w-full */
+
+    /* Padding */
+    padding-top: 0.75rem;
+    /* py-3 */
+    padding-bottom: 0.75rem;
+    /* py-3 */
+    padding-left: 4rem;
+    /* pl-12 (3 * 4 = 12, so 3rem) */
+    padding-right: 1rem;
+    /* pr-4 */
+
+    /* Typography and Colors */
+    color: #4a5568;
+    /* text-gray-700 (standard Tailwind gray-700) */
+    background-color: #ffffff;
+    /* bg-white */
+
+    /* Borders and Shape */
+    border: 1px solid;
+    /* border */
+    border-color: #edf2f7;
+    /* border-gray-200 (standard Tailwind gray-200) */
+    border-radius: 9999px;
+    /* rounded-full (pill shape) */
+
+    /* Transitions for smoother focus effect (optional but recommended) */
+    transition: all 150ms ease-in-out;
+}
+
+.search-input:focus {
+    /* focus:outline-none */
+    outline: 2px solid transparent;
+    outline-offset: 2px;
+
+    /* focus:border-transparent */
+    border-color: transparent;
+
+    /* focus:ring-2 and focus:ring-cyan-400 - Creates the glowing ring effect */
+    /* Syntax: box-shadow: (offset-x) (offset-y) (blur-radius) (spread-radius) (color) */
+    box-shadow: 0 0 0 2px #48bbd0;
+    /* Assuming cyan-400 is close to this hex value */
+}
